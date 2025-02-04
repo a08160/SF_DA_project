@@ -76,3 +76,28 @@ plt.title("공용관리비용 이상치 확인 (Boxplot)")
 print(f"공용관리비용 이상치 개수: {outliers.shape[0]}")
 
 
+# 이상치 제거
+df_cleaned = df[(df[column_name] >= lower_bound) & (df[column_name] <= upper_bound)]
+
+# 이상치 제거 후 결측값 재확인
+missing_values_after = df_cleaned[column_name].isnull().sum()
+
+# 시각화: 이상치 제거 전/후 비교
+plt.figure(figsize=(12, 5))
+
+# Boxplot (이상치 제거 전)
+plt.subplot(1, 2, 1)
+sns.boxplot(x=df[column_name], color='orange')
+plt.title("공용관리비용 이상치 제거 전 (Boxplot)")
+
+# Boxplot (이상치 제거 후)
+plt.subplot(1, 2, 2)
+sns.boxplot(x=df_cleaned[column_name], color='blue')
+plt.title("공용관리비용 이상치 제거 후 (Boxplot)")
+
+plt.tight_layout()
+plt.show()
+
+# 이상치 및 결측값 정보 출력
+print(f"공용관리비용 이상치 제거 전 갯수: {df.shape[0]}")
+print(f"이상치 제거 후 데이터 개수: {df_cleaned.shape[0]}")
