@@ -101,3 +101,15 @@ plt.show()
 # 이상치 및 결측값 정보 출력
 print(f"공용관리비용 이상치 제거 전 갯수: {df.shape[0]}")
 print(f"이상치 제거 후 데이터 개수: {df_cleaned.shape[0]}")
+
+import pandas as pd
+
+# 지역별 "공용관리비용" 평균 계산
+average_management_fees = df_cleaned.groupby("지역")["공용관리비용"].mean().reset_index()
+
+# 평균 계산 결과 출력
+print(average_management_fees)
+
+# 인덱스 없이 CSV 파일로 저장
+average_management_fees = average_management_fees.sort_values(by="지역")  # 지역별로 정렬
+average_management_fees.to_csv("자치구별_관리비_평균.csv", index=False, encoding="utf-8-sig")
