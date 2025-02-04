@@ -5,7 +5,7 @@ font_prop = fm.FontProperties(fname=font_path, size=14)
 import os
 import pandas as pd
 
-### 자치구별 관리비 2020-2024 4개년치 데이터 통합
+'''자치구별 관리비 2020-2024 4개년치 데이터 통합'''
 
 folder_path = "C:\\Users\\TG\\Desktop\\maintenance_cost"
 
@@ -36,3 +36,43 @@ final_df = pd.concat(data_list, ignore_index=True)
 print(final_df)
 df = final_df.sort_index(axis = 0)
 df.to_csv("자치구별_통계.csv", index = False, encoding="utf-8-sig")
+
+
+
+'''이상치 탐색 및 전처리'''
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 한글 폰트 설정
+plt.rc('font', family='Malgun Gothic')  # Windows 사용자
+plt.rcParams['axes.unicode_minus'] = False  # 마이너스 부호 깨짐 방지
+
+column_name = "공용관리비용"
+df[column_name] = pd.to_numeric(df[column_name], errors='coerce')  # 숫자로 변환, 오류 시 NaN 처리
+
+# 결측값 개수 확인
+missing_values = df[column_name].isnull().sum()
+
+# 이상치 탐색: IQR 방식 사용
+Q1 = df[column_name].quantile(0.25)
+Q3 = df[column_name].quantile(0.75)
+IQR = Q3 - Q1
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+
+# 이상치 여부 확인
+outliers = df[(df[column_name] < lower_bound) | (df[column_name] > upper_bound)]
+
+# 시각화: 결측값 및 이상치 그래프
+plt.figure(figsize=(12, 5))
+
+# Boxplot (이상치 확인)
+plt.subplot(1, 2, 1)
+sns.boxplot(x=df[column_name], color='orange')
+plt.title("공용관리비용 이상치 확인 (Boxplot)")
+
+# 이상치 및 결측값 정보 출력
+print(f"공용관리비용 이상치 개수: {outliers.shape[0]}")
+
+
