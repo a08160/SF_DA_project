@@ -19,6 +19,6 @@ def find_administrative_dong(latitude, longitude, gdf):
 
 new_df["행정동"] = new_df.apply(lambda x: find_administrative_dong(x["위도"], x["경도"], gdf), axis=1)
 
-final_data = pd.pivot_table(new_df, index="주제분류", columns="행정동", aggfunc="size", fill_value=0)
+final_data = pd.pivot_table(new_df, index="주제분류", columns="행정동", aggfunc="size", fill_value=0).T
 
 final_data.to_excel("문화시설.xlsx")
