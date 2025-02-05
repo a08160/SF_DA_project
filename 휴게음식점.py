@@ -38,6 +38,6 @@ new_df["행정동"] = new_df.apply(lambda x: find_administrative_dong(x["위도"
 full_data = new_df[new_df["행정동"] != "해당 좌표는 어떤 행정동에도 속하지 않습니다."]
 
 # 행정동 / 업태구분명 별 데이터 정리
-final_data = pd.pivot_table(full_data, index="업태구분명", columns="행정동", aggfunc="size", fill_value=0).T
+final_data = pd.pivot_table(full_data, index="업태구분명", columns="행정동", aggfunc="size", fill_value=0)
 
 final_data.to_excel("cafe_data.xlsx")
