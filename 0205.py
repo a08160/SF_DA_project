@@ -77,3 +77,4 @@ df_avg_rent.to_csv("지역별_평균_월세.csv", index=False, encoding="utf-8-s
 # 데이터 확인 (처음 몇 개 행만 출력)
 print("지역별 평균 월세 데이터:")
 print(df_avg_rent.head())
+
