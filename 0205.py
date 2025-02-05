@@ -8,11 +8,38 @@ import re
 
 # 2021-2022년 전월세 파일은 txt 파일이기 때문에 csv로 변환해야 함..
 
+# TXT 파일 경로 (변환할 파일 경로)
+txt_file_path = r"C:\Users\TG\Documents\SF_DA_project\data\monthly_rent\서울특별시_전월세가_2021.txt"
+csv_file_path = txt_file_path.replace(".txt", ".csv")  # 동일한 이름으로 CSV 변환
+
+# 파일 인코딩 구분
+def detect_encoding(file_path):
+    with open(file_path, "rb") as f:
+        raw_data = f.read(10000)  # 파일 일부만 읽어서 인코딩 감지
+    result = chardet.detect(raw_data)
+    return result["encoding"]
+
+encoding_type = detect_encoding(txt_file_path)
+print(f"감지된 파일 인코딩: {encoding_type}")
+
+with open(txt_file_path, "r", encoding=encoding_type) as file:
+    first_line = file.readline()
+    delimiter = "," if "," in first_line else "\t" if "\t" in first_line else " "  # 쉼표, 탭, 공백 중 선택
+
+print(f"감지된 구분자: '{delimiter}'")
+
+# df로 변환
+df = pd.read_csv(txt_file_path, delimiter=delimiter, encoding=encoding_type)
+
+# CSV 파일로 저장
+df.to_csv(csv_file_path, index=False, encoding="utf-8-sig")
+
+print(f" 변환 완료! CSV 파일 저장: {csv_file_path}")
 
 
 
 # CSV 파일이 들어있는 폴더 경로
-folder_path = r"C:\Users\TG\Desktop\monthly_rent"
+folder_path = r"C:\Users\TG\Documents\SF_DA_project\data\monthly_rent"
 
 csv_files = glob.glob(os.path.join(folder_path, "*.csv"))
 
