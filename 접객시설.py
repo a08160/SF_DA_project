@@ -33,7 +33,7 @@ for adm_nm in missing_dongs["adm_nm"]:
     df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
 
 df_grouped = df.groupby("행정동_코드_명").sum().T
-df_grouped = df_grouped.loc[:, df_grouped.columns != 0]
+df_grouped = df_grouped.loc[:, df_grouped.columns != 0].T
 df_grouped
 
 df_grouped.to_excel("접객시설.xlsx")
