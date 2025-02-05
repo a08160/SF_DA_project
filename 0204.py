@@ -113,3 +113,4 @@ print(average_management_fees)
 # 인덱스 없이 CSV 파일로 저장
 average_management_fees = average_management_fees.sort_values(by="지역")  # 지역별로 정렬
 average_management_fees.to_csv("자치구별_관리비_평균.csv", index=False, encoding="utf-8-sig")
+
