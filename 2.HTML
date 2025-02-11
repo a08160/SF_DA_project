@@ -14,8 +14,11 @@
             align-items: center;
             background-color: #f8f8f8;
         }
-        .header {
+        .header, .info-box, .button-container {
             width: 80%;
+            max-width: 600px; /* 최대 너비 설정 */
+        }
+        .header {
             padding: 15px;
             text-align: left;
             font-size: 24px;
@@ -25,7 +28,6 @@
             margin-bottom: 20px;
         }
         .info-box {
-            width: 80%;
             padding: 15px;
             background-color: #e0f2e9;
             text-align: left;
@@ -34,14 +36,15 @@
             margin-bottom: 20px;
         }
         .button-container {
-            width: 80%;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
         .button {
+            width: 100%;
             display: flex;
             align-items: center;
+            justify-content: center;
             padding: 15px;
             background-color: white;
             border: 1px solid #ddd;
@@ -50,13 +53,14 @@
             cursor: pointer;
             transition: background 0.2s;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         .button:hover {
             background-color: #f0f0f0;
         }
         .dropdown {
             display: none;
-            width: 80%;
+            width: 100%;
             padding: 15px;
             background-color: #ffffff;
             border-radius: 5px;
@@ -66,6 +70,7 @@
         .dropdown-item {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 10px;
         }
         .select {
@@ -83,43 +88,38 @@
         <div class="button" onclick="toggleDropdown('transport')">교통 환경</div>
         <div id="transport" class="dropdown">
             <div class="dropdown-item">버스 정거장 수 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
-            <div class="dropdown-item">지하철 역 수 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
         </div>
 
         <div class="button" onclick="toggleDropdown('housing')">주거환경</div>
         <div id="housing" class="dropdown">
             <div class="dropdown-item">아파트 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
-            <div class="dropdown-item">독립주택 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
         </div>
 
         <div class="button" onclick="toggleDropdown('population')">지역인구</div>
         <div id="population" class="dropdown">
             <div class="dropdown-item">총인구수 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
         </div>
-    </div>
 
-    <div class="button" onclick="toggleDropdown('safety')">안전</div>
-    <div id="safety" class="dropdown">
-        <div class="dropdown-item">가로등 수 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
-        <div class="dropdown-item">평균 범죄 발생 건수(20~23년) <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
-        <div class="dropdown-item">치안센터 수 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
-    </div>
+        <div class="button" onclick="toggleDropdown('safety')">안전</div>
+        <div id="safety" class="dropdown">
+            <div class="dropdown-item">가로등 수 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
+            <div class="dropdown-item">평균 범죄 발생 건수(20~23년) <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
+        </div>
 
-    <div class="button" onclick="toggleDropdown('infra')">편의시설</div>
-    <div id="infra" class="dropdown">
-        <div class="dropdown-item">공연장 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
-        <div class="dropdown-item">백화점 수 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
-    </div>
+        <div class="button" onclick="toggleDropdown('infra')">편의시설</div>
+        <div id="infra" class="dropdown">
+            <div class="dropdown-item">공연장 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
+        </div>
 
-    <div class="button" onclick="toggleDropdown('welfare')">복지</div>
-    <div id="welfare" class="dropdown">
-        <div class="dropdown-item">병원 수 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
-        <div class="dropdown-item">약국 수 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
-    </div>
+        <div class="button" onclick="toggleDropdown('welfare')">복지</div>
+        <div id="welfare" class="dropdown">
+            <div class="dropdown-item">병원 수 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
+        </div>
 
-    <div class="button" onclick="toggleDropdown('education')">교육</div>
-    <div id="education" class="dropdown">
-        <div class="dropdown-item">유치원 수 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
+        <div class="button" onclick="toggleDropdown('education')">교육</div>
+        <div id="education" class="dropdown">
+            <div class="dropdown-item">유치원 수 <select class="select"><option>상</option><option>중</option><option>하</option></select></div>
+        </div>
     </div>
 
     <script>
