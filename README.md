@@ -4,10 +4,9 @@
 ## 📌 프로젝트 개요  
 서울에서 자취를 고민하는 사람들을 위해 **데이터 기반으로 최적의 주거 지역을 추천하는 서비스**입니다.  
 사용자의 선호도(교육, 교통, 생활 편의시설 등)를 반영하여 최적의 지역을 분석하고, **지도로 시각화하여 제공**합니다.  
-<video controls width="600">
-  <source src="https://github.com/user-attachments/assets/a6423176-3d42-4928-abff-71b9e6833321" type="video/mp4">
-  해당 브라우저는 비디오 태그를 지원하지 않습니다.
-</video>
+
+https://github.com/user-attachments/assets/a6423176-3d42-4928-abff-71b9e6833321
+
 <br/>
 
 ## 👨‍👩‍👧‍👦 팀 소개
