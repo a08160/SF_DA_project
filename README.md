@@ -5,4 +5,4 @@
 https://github.com/user-attachments/assets/a6423176-3d42-4928-abff-71b9e6833321
 
 ## 팀원 소개
-DA: 조경록 이채연 이동건
+DA 조경록(팀장) 이채연 이동건
