@@ -5,7 +5,6 @@
 <br>
 <video controls width="600">
   <source src="./media/KakaoTalk_20250216_174232048.mp4" type="video/mp4">
-  브라우저가 video 태그를 지원하지 않습니다.
 </video>
 
 ## 팀원 소개
