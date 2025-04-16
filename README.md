@@ -13,7 +13,7 @@ https://github.com/user-attachments/assets/a6423176-3d42-4928-abff-71b9e6833321
 
 |      조경록       |         이동건         |       이채연         |
 |---|---|---|
-|      팀장         |        팀원         |       팀            |
+|      팀장         |        팀원         |       팀원            |
 | <a href="https://github.com/josh980501"> 🔗GitHub</a> | <a href="https://github.com/a08160">🔗GitHub </a> | <a href="https://github.com/dlanrll">🔗GitHub</a>  |
 
 <br/>
